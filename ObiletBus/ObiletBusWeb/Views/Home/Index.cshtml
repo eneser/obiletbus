@@ -1,0 +1,316 @@
+﻿<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .searchText {
+        background-image: url('https://www.w3schools.com/css/searchicon.png');
+        background-position: 10px 12px;
+        background-repeat: no-repeat;
+        width: 100%;
+        font-size: 16px;
+        padding: 12px 20px 12px 40px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .locationUL {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .locationUL li {
+            border: 1px solid #ddd;
+            margin-top: -1px; /* Prevent double borders */
+            background-color: #f6f6f6;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+            display: block;
+            cursor: pointer;
+        }
+
+            .locationUL li :hover:not(.header) {
+                background-color: #eee;
+                cursor: pointer;
+            }
+
+    .loader {
+        border: 4px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 4px solid #3498db;
+        width: 30px;
+        height: 30px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+    }
+
+    /* Safari */
+    @@-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @@keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="container">
+    <div class="row">
+        <div class="card text-white bg-danger " style="width: 25rem;">
+            <div class="card-body">
+                <span>Kalkış Noktası</span>
+                <input type="text" class="searchText" id="departure" data-id="" onkeyup="busLocation(1)" placeholder="İl veya ilçe adı yazın..">
+                <div style="background-color:#fff">
+                    <div class="loader"></div>
+                </div>
+                <ul class="locationUL mb-3" id="departureUL">
+                </ul>
+                <div style="margin: 2px;height: 15px;">
+                    <button class="btn btn-light" style="float:right" id="changelocation">
+                        <i style="color:#000" class="fa fa-arrows-v" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <span>Varış Noktası</span>
+                <input type="text" class="searchText" id="destination" data-id="" onkeyup="busLocation(2)" placeholder="İl veya ilçe adı yazın..">
+                <div style="background-color:#fff">
+                    <div class="loader"></div>
+                </div>
+                <ul class="locationUL mb-3" id="destinationUL">
+                </ul>
+                <hr />
+                <div>
+                    <span>Yolculuk Tarihi</span>
+
+                    <div class="row">
+                        <div class="col-md-9">
+                            <input type="text" id="datepickerLocation" value="@DateTime.Now.ToString("dd MMMM yyyy dddd")" class="form-control mb-3">
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-secondary mb-1" id="btntoday" style="width:70px;padding:3px;">Bugün</button>
+                            <button type="button" class="btn btn-light" id="btntomorrow" style="width:70px;padding:3px;">Yarın</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-3">
+                    <button type="submit" class="btn btn-success" id="ticketFind">Otobüs Bileti Bul</button>
+                </div>
+                <hr />
+                <div>
+                    <small>Kalkış ve varış noktalarını seçtikten sonra yolculuk tarihini de seçip size en uygun otobüs biletini seçebilirsiniz.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        $(".loader").hide();
+        var tempDeparture = "";
+        var tempDestination = "";
+
+        $(document).ready(function () {
+            debugger
+            $('#datepickerLocation').datepicker({
+                startDate: '+0d',
+                autoclose: true,
+                format: "dd MM yyyy DD",
+                language: "tr"
+            });
+            $("#departureUL").hide();
+            $("#destinationUL").hide();
+            busLocation(0);
+        });
+
+        $("#ticketFind").click(function () {
+            debugger
+            if ($("#departure").data().id == "" || $("#destination").data().id == "" || $("#departure").val() == "" || $("#destination").val() == "") {
+                alert("Kalkış/Varış noktası seçin!");
+                return;
+            }
+           
+            var departure = parseFloat($("#departure").data().id);
+            var destination = parseFloat($("#destination").data().id);
+            var departuredate = $('#datepickerLocation').datepicker("getDate");
+            var date = departuredate.getFullYear() + "-" + (departuredate.getMonth() + 1) + "-" + departuredate.getDate();
+
+            localStorage.clear();
+            localStorage.setItem('UserDepartureLocationId', departure);
+            localStorage.setItem('UserDestinationLocationId', destination);
+            localStorage.setItem('UserDepartureLocation', $("#departure").val());
+            localStorage.setItem('UserDestinationLocation', $("#destination").val());
+            localStorage.setItem('UserLocationDate', departuredate);
+
+            window.location.href = "/Journeys/Seferler/?orgin=" + departure + "&destination=" + destination + "&departuredate=" + date;
+        });
+
+        $("#changelocation").click(function () {
+            var temp = tempDeparture;
+            tempDeparture = tempDestination
+            tempDestination = temp;
+
+            temp = $("#departure").val();
+            $("#departure").val($("#destination").val());
+            $("#destination").val(temp);
+
+            temp = $("#departure").data().id;
+            $("#departure").data('id', $("#destination").data().id);
+            $("#destination").data('id', temp);
+        });
+
+        $("#btntomorrow").click(function () {
+            var date = new Date();
+            date.setDate(date.getDate() + 1);
+            $('#datepickerLocation').datepicker("setDate", date);
+        });
+
+        $("#btntoday").click(function () {
+            var date = new Date();
+            $('#datepickerLocation').datepicker("setDate", date);
+        });
+
+        $("#departure").click(function () {
+            $("#departureUL").show();
+        });
+
+        $("#destination").click(function () {
+            $("#destinationUL").show();
+        });
+
+        $("#departureUL").click(function () {
+            debugger
+            var target = event.target;
+            checkSameLocation(target, "#departure");
+
+            $("#departureUL").hide();
+            isLocation();
+        });
+
+        $("#destinationUL").click(function () {
+            var target = event.target;
+            checkSameLocation(target, "#destination");
+            $("#destinationUL").hide();
+            isLocation();
+        });
+
+        $("*").click(function (event) {
+            if (!$(event.target).is("#departure") && !$("#departureUL").is(":hidden")) {
+                $("#departureUL").hide();
+            }
+            else if (!$(event.target).is("#destination") && !$("#destinationUL").is(":hidden")) {
+                $("#destinationUL").hide();
+            }
+        });
+
+        function busLocation(input) {
+            debugger
+            var searchData = '';
+            //var inputDep = document.getElementById("departure");
+            //input = inputDep.value;
+            //if (input == '') {
+            //    var inputDes = document.getElementById("destination");
+            //    input = inputDes.value;
+            //}
+            if(input == 1) {
+                searchData = document.getElementById("departure").value;
+            }else if(input == 2){
+                searchData = document.getElementById("destination").value;
+            }
+            var dataPost = { data: searchData };
+            $.ajax({
+                type: "POST",
+                url: "/Location/GetBusLocation/",
+                dataType: 'json',
+                data: dataPost,
+                beforeSend: function () {
+                    $(".loader").show();
+                },
+                contenttype: "application/json; charset=utf-8",
+                success: function (result) {
+                    if (result.status == "Success") {
+                        $(".loader").hide();
+                        if (input == 1) {
+                            $('#departureUL').empty();
+                        } else if (input == 2) {
+                            $('#destinationUL').empty();
+                        }
+                        else {
+                            $('ul').empty();
+                        }
+                        result.data.forEach(function (index, i) {
+                            if (input == 1) {
+                                $("#departureUL").append('<li id="' + index.id + '">' + index.name + '</li>');
+                            } else if (input == 2) {
+                                $("#destinationUL").append('<li id="' + index.id + '">' + index.name + '</li>');
+                            }
+                            else {
+                                $("#departureUL").append('<li id="' + index.id + '">' + index.name + '</li>');
+                                $("#destinationUL").append('<li id="' + index.id + '">' + index.name + '</li>');
+                            }
+                        });
+                    }
+                }
+            });
+            if (input == 0) {
+                LocalStorageControl();
+            }
+            isLocation();
+        }
+
+        function isLocation() {
+            if ($("#destination").val() == "" && $("#destination").val() == "") {
+                $("#changelocation").prop('disabled', true)
+            }
+            else {
+                $("#changelocation").prop('disabled', false)
+            }
+        };
+
+        function checkSameLocation(target, input) {
+            if (input == "#departure") {
+                tempDeparture = target.id;
+            } else {
+                tempDestination = target.id;
+            }
+
+            if ((tempDeparture != "" && tempDestination != "") && (tempDeparture == tempDestination)) {
+                alert("Kalkış-Varış aynı konum olamaz!");
+            } else {
+                $(input).val(target.innerHTML);
+                $(input).data('id', target.id);
+            }
+        }
+
+        function LocalStorageControl() {
+
+            if (localStorage.getItem('UserDepartureLocationId') != "" &&
+                localStorage.getItem('UserDestinationLocationId') != "" &&
+                localStorage.getItem('UserLocationDate') != "") {
+                debugger
+                $("#departure").val(localStorage.getItem('UserDepartureLocation'));
+                $("#destination").val(localStorage.getItem('UserDestinationLocation'));
+                $("#departure").data('id', localStorage.getItem('UserDepartureLocationId'));
+                $("#destination").data('id', localStorage.getItem('UserDestinationLocationId'));
+                tempDeparture = localStorage.getItem('UserDepartureLocationId');
+                tempDestination = localStorage.getItem('UserDestinationLocationId');
+
+                var date = new Date(localStorage.getItem('UserLocationDate'));
+                $('#datepickerLocation').datepicker("setDate", date);
+            }
+        }
+
+    </script>
+}

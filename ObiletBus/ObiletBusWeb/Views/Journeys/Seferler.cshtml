@@ -1,0 +1,77 @@
+﻿@model ObiletBus.Core.DTOs.Journeys.JourneysResponseDto
+@{
+    ViewData["Title"] = "Seferler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    @if (Model.data != null && Model.data.Count > 0)
+    {
+        <div style="height:50px;max-width: 20rem;background-color:#003e8b;color:#fff;padding-top: 10px;" class="text-center">
+            <button class="btn btn-light" style="float:left;margin-left: 5px;" id="btnback">
+                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            </button>
+            <h4>@Model.data[0].origin_location - @Model.data[0].destination_location</h4>
+        </div>
+        <div style="background-color: #ebebeb;max-width: 20rem">
+            @foreach (var item in Model.data)
+            {
+                <div class="card border-light" style="max-width: 20rem; margin:3px">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small>KALKIŞ</small>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <small>VARIŞ</small>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <small>@item.journey.departure.ToShortTimeString()</small>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <small>@item.journey.arrival.ToShortTimeString()</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="badge bg-danger">
+                                    @item.journey.internet_price @item.journey.currency
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <h6 class="card-text">@item.journey.origin - @item.journey.destination</h6>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div style="height:50px;max-width: 25rem;background-color:#003e8b;color:#fff;padding-top: 10px;" class="text-center">
+            <button class="btn btn-light" style="float:left;margin-left: 5px;" id="btnback">
+                <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+            </button>
+        </div>
+        <div style="background-color: #ebebeb;max-width: 25rem">
+            Sefer Kaydı Bulunamadı.
+        </div>
+    }
+</div>
+
+@section scripts {
+    <script>
+        $("#btnback").click(function () {
+            window.location.href = "/Home/Index";
+        });
+
+    </script>
+}
