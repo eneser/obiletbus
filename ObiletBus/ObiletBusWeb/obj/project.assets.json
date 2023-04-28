@@ -9143,11 +9143,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBusWeb\\ObiletBusWeb.csproj",
+      "projectUniqueName": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBusWeb\\ObiletBusWeb.csproj",
       "projectName": "ObiletBusWeb",
-      "projectPath": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBusWeb\\ObiletBusWeb.csproj",
+      "projectPath": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBusWeb\\ObiletBusWeb.csproj",
       "packagesPath": "C:\\Users\\EnesErcan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBusWeb\\obj\\",
+      "outputPath": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBusWeb\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EnesErcan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9164,8 +9164,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj": {
-              "projectPath": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj"
+            "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj": {
+              "projectPath": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj"
             }
           }
         }

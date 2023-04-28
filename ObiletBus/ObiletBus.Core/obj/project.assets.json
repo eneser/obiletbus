@@ -285,11 +285,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj",
+      "projectUniqueName": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj",
       "projectName": "ObiletBus.Core",
-      "projectPath": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj",
+      "projectPath": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBus.Core\\ObiletBus.Core.csproj",
       "packagesPath": "C:\\Users\\EnesErcan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\EnesErcan\\source\\repos\\ObiletBus\\ObiletBus.Core\\obj\\",
+      "outputPath": "C:\\Users\\EnesErcan\\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\\Masaüstü\\GitHub\\obiletbus\\ObiletBus\\ObiletBus.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\EnesErcan\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -123,7 +123,7 @@
         var tempDestination = "";
 
         $(document).ready(function () {
-            debugger
+            
             $('#datepickerLocation').datepicker({
                 startDate: '+0d',
                 autoclose: true,
@@ -136,12 +136,12 @@
         });
 
         $("#ticketFind").click(function () {
-            debugger
+            
             if ($("#departure").data().id == "" || $("#destination").data().id == "" || $("#departure").val() == "" || $("#destination").val() == "") {
                 alert("Kalkış/Varış noktası seçin!");
                 return;
             }
-           
+
             var departure = parseFloat($("#departure").data().id);
             var destination = parseFloat($("#destination").data().id);
             var departuredate = $('#datepickerLocation').datepicker("getDate");
@@ -191,7 +191,7 @@
         });
 
         $("#departureUL").click(function () {
-            debugger
+            
             var target = event.target;
             checkSameLocation(target, "#departure");
 
@@ -216,7 +216,7 @@
         });
 
         function busLocation(input) {
-            debugger
+            
             var searchData = '';
             //var inputDep = document.getElementById("departure");
             //input = inputDep.value;
@@ -224,9 +224,9 @@
             //    var inputDes = document.getElementById("destination");
             //    input = inputDes.value;
             //}
-            if(input == 1) {
+            if (input == 1) {
                 searchData = document.getElementById("departure").value;
-            }else if(input == 2){
+            } else if (input == 2) {
                 searchData = document.getElementById("destination").value;
             }
             var dataPost = { data: searchData };
@@ -298,8 +298,8 @@
 
             if (localStorage.getItem('UserDepartureLocationId') != "" &&
                 localStorage.getItem('UserDestinationLocationId') != "" &&
-                localStorage.getItem('UserLocationDate') != "") {
-                debugger
+                localStorage.getItem('UserLocationDate') != "") 
+            {                
                 $("#departure").val(localStorage.getItem('UserDepartureLocation'));
                 $("#destination").val(localStorage.getItem('UserDestinationLocation'));
                 $("#departure").data('id', localStorage.getItem('UserDepartureLocationId'));
@@ -307,8 +307,10 @@
                 tempDeparture = localStorage.getItem('UserDepartureLocationId');
                 tempDestination = localStorage.getItem('UserDestinationLocationId');
 
-                var date = new Date(localStorage.getItem('UserLocationDate'));
-                $('#datepickerLocation').datepicker("setDate", date);
+                if (localStorage.getItem('UserLocationDate') != null) {
+                    var date = new Date(localStorage.getItem('UserLocationDate'));
+                    $('#datepickerLocation').datepicker("setDate", date);
+                }
             }
         }
 

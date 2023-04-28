@@ -10,3 +10,15 @@ C:\Users\EnesErcan\source\repos\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\Obilet
 C:\Users\EnesErcan\source\repos\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\refint\ObiletBus.Core.dll
 C:\Users\EnesErcan\source\repos\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.pdb
 C:\Users\EnesErcan\source\repos\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ref\ObiletBus.Core.dll
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\bin\Debug\net6.0\ObiletBus.Core.deps.json
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\bin\Debug\net6.0\ObiletBus.Core.dll
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\bin\Debug\net6.0\ObiletBus.Core.pdb
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.csproj.AssemblyReference.cache
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.AssemblyInfoInputs.cache
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.AssemblyInfo.cs
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.csproj.CoreCompileInputs.cache
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.dll
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\refint\ObiletBus.Core.dll
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ObiletBus.Core.pdb
+C:\Users\EnesErcan\OneDrive - Neyasis Bilgi Teknolojileri A.Ş\Masaüstü\GitHub\obiletbus\ObiletBus\ObiletBus.Core\obj\Debug\net6.0\ref\ObiletBus.Core.dll
